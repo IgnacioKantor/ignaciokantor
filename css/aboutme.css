@@ -1,0 +1,281 @@
+/* Colores usados */
+/* #ffffff #2c2c2f */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+}
+
+/* Estilo de la línea divisoria */
+.divider {
+  position: absolute;
+  top: 35%;
+  bottom: 0;
+  left: 70%;
+  width: 0.4px;
+  background-color: #333;
+}
+
+/* Otros estilos... */
+
+.hamburger {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+}
+
+.menu {
+  list-style: none;
+  position: fixed;
+  top: 40px;
+  left: 10px;
+  background-color: #444;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 150px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  z-index: 9;
+}
+
+.menu.active {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 0 8px 6px rgba(0, 0, 0, 0.5); /* Resplandor suave en el borde */
+}
+
+.menu li {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: color 0.3s;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.menu li a:hover {
+  color: #893914;
+}
+
+/* Animación para la hamburguesa */
+.hamburger.active .line1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line2 {
+  opacity: 0;
+}
+
+.hamburger.active .line3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Ajuste de la "X" para cerrar el menú */
+.hamburger.active .line1, .hamburger.active .line3 {
+  position: relative;
+  top: 0;
+}
+
+/* Estilos para las imágenes con borde circular y efecto de flotar */
+.custom-image {
+  width: 500px; /* Ajusta el tamaño inicial */
+  height: auto; /* Mantiene la proporción */
+  border-radius: 6%; /* Borde circular */
+  transition: all 0.3s ease; /* Suaviza el cambio de tamaño y posición */
+}
+
+/* Posicionamiento y animación específica para cada imagen */
+.custom-image-1 {
+  position: absolute;
+  top: 30%; /* Ajusta la posición */
+  right: 820px; /* Ajusta la posición */
+  animation: floatUp 6s infinite ease-in-out; /* Flota hacia arriba */
+}
+
+.custom-image-2 {
+  position: absolute;
+  top: 30%; /* Ajusta la posición */
+  right: 150px; /* Ajusta la posición */
+  animation: floatDown 6s infinite ease-in-out; /* Flota hacia abajo */
+}
+
+/* Efecto de flotar hacia arriba (imagen 1) */
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); } /* Movimiento sutil hacia arriba */
+  100% { transform: translateY(0); }
+}
+
+/* Efecto de flotar hacia abajo (imagen 2) */
+@keyframes floatDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px); } /* Movimiento sutil hacia abajo */
+  100% { transform: translateY(0); }
+}
+
+.floating-square {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4); /* Resplandor más uniforme */
+  animation: floatAnimation 8s infinite ease-in-out;
+  opacity: 0.2;
+}
+
+/* Square positions */
+.random-square-1 { left: 31%; top: 655px; width: 70px; height: 70px; }
+.random-square-2 { left: 90%; top: 80px; width: 65px; height: 65px;  } 
+.random-square-3 { left: 69%; top: 40px; width: 70px; height: 70px;  }
+.random-square-4 { left: 18%; top: 190px; width: 45px; height: 45px;  }
+.random-square-5{ left: 4%; top: 300px; width: 85px; height: 85px; }
+.random-square-6 { left: 85%; top: 200px; width: 65px; height: 65px;  } 
+.random-square-7 { right: 67%; top: 40px; width: 70px; height: 70px; }
+.random-square-8 { right: 90%; top: 20px; width: 65px; height: 65px;  }
+.random-square-9 { right: 48%; top: 615px; width: 60px; height: 60px; }
+.random-square-10 { left: 69%; top: 40px; width: 70px; height: 70px; z-index: 3;  }
+.random-square-11 { left: 81%; top: 560px; width: 65px; height: 65px;  } 
+.random-square-12 { right: 40%; top: 90px; width: 45px; height: 45px;  }
+.random-square-13 { left: 11%; top: 640px; width: 65px; height: 65px;   }
+.random-square-14 { left: 90%; top: 380px; width: 85px; height: 85px; }
+.random-square-15 { left: 37%; top: 160px; width: 50px; height: 50px;  }
+.random-square-16 { left: 68%; top: 650px; width: 60px; height: 60px;  }
+.random-square-17 { left: 88%; top: 680px; width: 85px; height: 85px;  }
+
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .custom-image-1 {
+    display: block;
+    position: absolute;
+    top: 150px; /* ajusta esto */
+    left: 15%;
+    transform: translateX(-50%);
+    width: 70%; /* ajusta tamaño si quieres */
+  }
+
+  .custom-image-2 {
+    display: block;
+    position: absolute;
+    top: 700px; /* ajusta esto */
+    left: 15%;
+    transform: translateX(-50%);
+    width: 70%; /* ajusta tamaño si quieres */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .random-square-1 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-2 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-3 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-4 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-5 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-6 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-7 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-8 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-9 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-10 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-11 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-12 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-13 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-14 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-15 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-16 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-17 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-18 { left: 11%; top: 1050px; width: 65px; height: 65px;   }
+  .random-square-19 { left: 69%; top: 1050px; width: 65px; height: 65px;   }
+  .random-square-20 { right: 43%; top: 890px; width: 60px; height: 60px; }
+  .random-square-21 { left: 31%; top: 1060px; width: 70px; height: 70px; }
+  .random-square-22 { left: 7%; top: 840px; width: 55px; height: 55px;   }
+  .random-square-23 { left: 88%; top: 870px; width: 65px; height: 65px;  }
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+  .random-square-1 { left: 26%; top: 800px; width: 70px; height: 70px; }
+  .random-square-2 { left: 77%; top: 130px; width: 35px; height: 35px;  } 
+  .random-square-3 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-4 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-5 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-6 { left: 80%; top: 200px; width: 65px; height: 65px;  } 
+  .random-square-7 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-8 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-9 { right: 48%; top: 630px; width: 60px; height: 60px; }
+  .random-square-10 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-11 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-12 { /* top: ; left: ; width: ; height: ; */ }
+  .random-square-13 { left: 7%; top: 720px; width: 65px; height: 65px;   }
+  .random-square-14 { left: 76%; top: 380px; width: 85px; height: 85px; }
+  .random-square-15 { left: 37%; top: 340px; width: 50px; height: 50px;  }
+  .random-square-16 { left: 60%; top: 760px; width: 60px; height: 60px;  }
+  .random-square-17 { left: 78%; top: 680px; width: 85px; height: 85px;  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .custom-image-1 {
+    display: block;
+    position: absolute;
+    top: 120px; /* ajusta tú */
+    left: 13%;
+    transform: translateX(-50%);
+    width: 75%; /* ajusta tú */
+  }
+
+  .custom-image-2 {
+    display: block;
+    position: absolute;
+    top: 450px; /* ajusta tú */
+    left: 13%;
+    transform: translateX(-50%);
+    width: 75%; /* ajusta tú */
+  }
+}

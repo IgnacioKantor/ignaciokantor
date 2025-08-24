@@ -1,0 +1,56 @@
+/* styles.css */
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #141414;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Reddit Sans Condensed', sans-serif;
+}
+
+#image-track > .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% 50%;
+}
+
+/* Nueva regla para la primera imagen */
+#image-track > .image:first-child {
+  object-position: 80% 50%; /* Mueve el foco más hacia la izquierda */
+}
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Para iniciar oculto */
+  transition: opacity 1s ease, transform 1.5s ease; /* Animación de aparición */
+}
+
+/* Preloader styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #141414; /* Cambiado al mismo color de fondo de las imágenes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem; /* Letra más pequeña */
+  color: #fff;
+  z-index: 1000;
+}
+
+#loader-text {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+

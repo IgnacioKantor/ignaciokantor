@@ -1,0 +1,264 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 50vh;
+    width: 50%;
+}
+
+.pacman {
+    position: relative;
+    background: transparent;
+    z-index: 1;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: -35px;
+        display: block;
+        border-radius: 50%;
+        content: "";
+        height: 0px;
+        width: 0px;
+    }
+
+    &::before {
+        animation: chunk-top .5s ease infinite;
+        border: 35px solid #FFCC00;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+    }
+
+    &::after {
+        animation: chunk-bottom .5s ease infinite;
+        border: 35px solid #FFCC00;
+        border-right-color: transparent;
+        border-top-color: transparent;
+    }
+}
+
+.path {
+    display: flex;
+    justify-content: space-around;
+    animation: eating-path .5s linear infinite;
+    width: 100%;
+
+    &::before {
+        background: #fff;
+        border-radius: 50%;
+        content: "";
+        height: 1rem;
+        width: 1rem;
+    }
+}
+
+@keyframes chunk-top {
+    0%,
+    100% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(-80deg);
+    }
+}
+
+@keyframes chunk-bottom {
+    0%,
+    100% {
+        transform: rotate(-40deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes eating-path {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Menú hamburguesa */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .hamburger div {
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+  }
+  
+  .menu {
+    list-style: none;
+    position: fixed;
+    top: 40px;
+    left: 10px;
+    background-color: #444;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 150px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+    z-index: 9;
+  }
+  
+  .menu.active {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 8px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .menu li {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: color 0.3s;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .menu li a:hover {
+    color: #893914;
+  }
+  
+  /* Animación para la hamburguesa */
+  .hamburger.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.active .line2 {
+    opacity: 0;
+  }
+  
+  .hamburger.active .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @keyframes float {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.project-text {
+    position: absolute;
+    top: calc(50vh - 80px); /* Ajusta según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+/*tablet/ipad*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .project-text {
+      font-size: 2.5rem;
+      margin-bottom: 60px; /* 🔼 Mueve el texto más arriba o abajo */
+      left: 51%;
+      top: 30vh;
+      transform: translateX(-30%);
+    }
+  
+    .pacman {
+        transform: scale(1.8); /* ⬅️ Aumenta el tamaño (1.0 es normal, 1.5 más grande) */
+        margin-top: 80px;
+      }
+      
+  
+    .path {
+      transform: scale(0.9);
+      margin-top: 60px;
+    }
+  }
+
+  .pacman-line {
+    justify-content: flex-start;
+    margin-left: 25%; /* 🔧 Ajusta manualmente */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* espacio entre pacman y puntos */
+    
+  }
+
+  /*tablet/ipad*/
+  @media screen and (max-width: 767px) {
+    .project-text {
+      font-size: 1.7rem;
+      margin-bottom: 60px; /* 🔼 Mueve el texto más arriba o abajo */
+      left: 52%;
+      top: 30vh;
+      transform: translateX(-30%);
+    }
+  
+    .pacman {
+        transform: scale(1.8); /* ⬅️ Aumenta el tamaño (1.0 es normal, 1.5 más grande) */
+        margin-top: 80px;
+      }
+      
+  
+    .path {
+      transform: scale(0.9);
+      margin-top: 60px;
+    }
+  }
+
+  .pacman-line {
+    justify-content: flex-start;
+    margin-left: 25%; /* 🔧 Ajusta manualmente */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* espacio entre pacman y puntos */
+    
+  }
+  
+  

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignacio Kantor</title>
+  <link rel="stylesheet" href="../css/aboutme.css">
+  <link rel="icon" href="../assets-img/fffg-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+
+  
+  <!-- Menú hamburguesa -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+  <ul class="menu">
+    <li><a href="../index.html">Home</a></li>
+  </ul>
+
+
+  
+
+  <!-- Imágenes de certificados -->
+  <img src="../assets-img/certificado-desarollo-web-flex.png" alt="Imagen 1" class="custom-image custom-image-1">
+  <img src="../assets-img/certificado-trading.png" alt="Imagen 2" class="custom-image custom-image-2">
+
+
+  <!-- Cuadrados flotantes -->
+  <div class="floating-square random-square-1"></div>
+  <div class="floating-square random-square-2"></div>
+  <div class="floating-square random-square-3"></div>
+  <div class="floating-square random-square-4"></div>
+  <div class="floating-square random-square-5"></div>
+  <div class="floating-square random-square-6"></div>
+  <div class="floating-square random-square-7"></div>
+  <div class="floating-square random-square-8"></div>
+  <div class="floating-square random-square-9"></div>
+  <div class="floating-square random-square-10"></div>
+  <div class="floating-square random-square-11"></div>
+  <div class="floating-square random-square-12"></div>
+  <div class="floating-square random-square-13"></div>
+  <div class="floating-square random-square-14"></div>
+  <div class="floating-square random-square-15"></div>
+  <div class="floating-square random-square-16"></div>
+  <div class="floating-square random-square-17"></div>
+  <div class="floating-square random-square-18"></div>
+  <div class="floating-square random-square-19"></div>
+  <div class="floating-square random-square-20"></div>
+  <div class="floating-square random-square-21"></div>
+  <div class="floating-square random-square-22"></div>
+  <div class="floating-square random-square-23"></div>
+
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    function toggleAccordion(button) {
+      const item = button.parentElement;
+      const content = item.querySelector(".accordion-content");
+
+    }
+  </script>
+</body>
+</html>

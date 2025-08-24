@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+
+
+
+/* Menú hamburguesa */
+.hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .hamburger div {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+  }
+  
+  .menu {
+    list-style: none;
+    position: fixed;
+    top: 40px;
+    left: 10px;
+    background-color: #444;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 150px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+    z-index: 9;
+  }
+  
+  .menu.active {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 8px 6px rgba(0, 0, 0, 0.5); /* Resplandor suave en el borde */
+  }
+  
+  .menu li {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: color 0.3s;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .menu li a:hover {
+    color: #893914;
+  }
+  
+  /* Animación para la hamburguesa */
+  .hamburger.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.active .line2 {
+    opacity: 0;
+  }
+  
+  .hamburger.active .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Ajuste de la "X" para cerrar el menú */
+  .hamburger.active .line1, .hamburger.active .line3 {
+    position: relative;
+    top: 0;
+  }
+
+
+  
+  /* Posicionamiento al centro inferior */
+  .sci {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Estilo de los íconos */
+  .sci li a {
+    position: relative;
+    width: 60px;     /* personalizable */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px; /* personalizable */
+    color: #000;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: color 0.3s ease;
+  }
+  
+  /* Círculo que se expande desde el centro */
+  .sci li a::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background-color: #893914;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0.9;
+    transition: transform 0.4s ease;
+    z-index: 0;
+  }
+  
+  /* Al hacer hover, se inunda con el color desde el centro */
+  .sci li a:hover::before {
+    transform: scale(1);
+  }
+  
+  /* Ícono encima del efecto */
+  .sci li a i {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+  }
+  
+  /* Cambia el color del ícono cuando se activa el efecto */
+  .sci li a:hover i {
+    color: white;
+  }
+
+
+
+
+
+  #background-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+  

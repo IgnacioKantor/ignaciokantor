@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignacio Kantor</title>
+    <link rel="stylesheet" href="/css/projects.css">
+    <link rel="icon" href="../assets-img/fffg-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+    
+  <!-- Menú hamburguesa -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+  <ul class="menu">
+    <li><a href="../index.html">Home</a></li>
+  </ul>
+
+
+      <main class="container">
+        <div class="project-text">Trabajando en nuevos proyectos...</div>
+      
+        <div class="pacman-line">
+          <div class="pacman"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+          <div class="path"></div>
+        </div>
+      </main>
+      
+
+
+
+        <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

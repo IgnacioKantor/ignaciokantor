@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignacio Kantor</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets-img/fffg-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-custom-navbar navbar-light fade-in-left" id="main-navbar">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link nav-text-color" href="#" onclick="slideToRight('./html/contact.html')">Contact</a>
+                  </li>                  
+              <li class="nav-item">
+                <a class="nav-link nav-text-color" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-text-color" href="#" onclick="slideToRight('./html/contact.html')">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Menú hamburguesa -->
+<div class="hamburger" onclick="toggleMenu()">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
+  <ul class="menu">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/html/contact.html">Contact</a></li>
+  </ul>
+  
+
+    <!-- Image Container -->
+    <div class="container mt-5 collage-container fade-in-left">
+
+
+        <div class="floating-square random-square-1"></div>
+        <div class="floating-square random-square-2"></div>
+        <div class="floating-square random-square-3"></div>
+        <div class="floating-square random-square-4"></div>
+        <div class="floating-square random-square-5"></div>
+        <div class="floating-square random-square-6"></div>
+        <div class="floating-square random-square-7"></div>
+        <div class="floating-square random-square-8"></div>
+        <div class="floating-square random-square-9"></div>
+        <div class="floating-square random-square-10"></div>
+        <div class="floating-square random-square-11"></div>
+        <div class="floating-square random-square-12"></div>
+        <div class="floating-square random-square-13"></div>
+
+
+        <img src="./assets-img/bbbasic.PNG" class="collage-img img-1 fade-in-left" alt="Image 1">
+        <img src="./assets-img/haciendotrading.PNG" class="collage-img img-2 fade-in-left" alt="Image 2">
+        <img src="./assets-img/fotoespejo.PNG" class="collage-img img-3 fade-in-left" alt="Image 3">
+    </div>
+
+<!-- Title Section -->
+<div class="hero-container">
+    <div class="div-title-index">
+        <h1 class="title-index" id="typed-heading"></h1>
+    </div>
+
+    <div class="arrow-container fade-in-left" id="scroll-arrow">
+        <div class="arrow-line"></div>
+        <div class="arrow-head"></div>
+    </div>
+</div>
+
+
+<!-- Next Section -->
+<div class="section"></div>
+<div class="next-section fade-in-left" id="next-section">
+  <div class="rectangle-wrapper">
+    <div class="custom-rectangle" id="rectangle-1" onclick="slideToRight('./html/aboutme.html')">
+        <p class="rectangle-text">About me</p>
+    </div>
+    <div class="custom-rectangle" id="rectangle-2" onclick="showWorkingMessage();">
+        <p class="rectangle-text">Services</p>
+        <span class="working-message">Working on my services</span> 
+      </div>
+      <div class="custom-rectangle" id="rectangle-3" onclick="showWorkingProjectsMessage();">
+        <p class="rectangle-text">Projects</p>
+        <span class="working-projects-message">Working on new projects</span>
+      </div>      
+  </div>
+</div>
+
+
+<!-- Transition Container -->
+<div id="transition-container">
+    <iframe id="content-iframe" src="" frameborder="0"></iframe>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed("#typed-heading", {
+        strings: ["Ignacio Kantor", "Independent designer", "Scroll down"],
+        typeSpeed: 50,
+        backSpeed: 50,
+        startDelay: 1000,
+        backDelay: 1500,
+        loop: true,
+        showCursor: false
+    });
+
+    function changeNavbarColor() {
+        const navbar = document.getElementById('main-navbar');
+        const nextSection = document.getElementById('next-section');
+        const navLinks = document.querySelectorAll('.nav-text-color');
+
+        if (window.scrollY >= nextSection.offsetTop) {
+            navbar.classList.add('navbar-dark');
+            navbar.classList.remove('navbar-light');
+            navLinks.forEach(link => {
+                link.classList.add('nav-link-dark');
+                link.classList.remove('nav-link-light');
+            });
+        } else {
+            navbar.classList.add('navbar-light');
+            navbar.classList.remove('navbar-dark');
+            navLinks.forEach(link => {
+                link.classList.add('nav-link-light');
+                link.classList.remove('nav-link-dark');
+            });
+        }
+    }
+
+    window.addEventListener('load', changeNavbarColor);
+
+    document.getElementById('scroll-arrow').addEventListener('click', () => {
+        document.querySelector('#next-section').scrollIntoView({
+            behavior: 'auto'
+        });
+        changeNavbarColor();
+    });
+
+    window.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        if (event.deltaY > 0) {
+            document.querySelector('#next-section').scrollIntoView({
+                behavior: 'auto'
+            });
+        } else if (event.deltaY < 0) {
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+        changeNavbarColor();
+    }, { passive: false });
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp') {
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        } else if (e.key === 'ArrowDown') {
+            document.querySelector('#next-section').scrollIntoView({
+                behavior: 'auto'
+            });
+        }
+        changeNavbarColor();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.fade-in-left');
+        elements.forEach((element, index) => {
+            setTimeout(() => {
+                element.classList.add('show');
+            }, index * 200);
+        });
+
+        const rectangles = document.querySelectorAll('.custom-rectangle');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    rectangles.forEach((rectangle, index) => {
+                        setTimeout(() => {
+                            rectangle.classList.add('show-rectangle');
+                        }, index * 500);
+                    });
+                } else {
+                    rectangles.forEach(rectangle => {
+                        rectangle.classList.remove('show-rectangle');
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.getElementById('next-section'));
+    });
+
+    window.addEventListener('scroll', changeNavbarColor);
+
+    // Función de deslizar hacia la derecha al hacer clic en un rectángulo
+    function slideToRight(url) {
+        const transitionContainer = document.getElementById('transition-container');
+        const iframe = document.getElementById('content-iframe');
+
+        // Cargar la nueva página en el iframe
+        iframe.src = url;
+
+        // Inicia la transición deslizándose hacia la vista
+        transitionContainer.style.transform = 'translateX(-100%)';
+
+        // Redirige al URL después de la animación
+        setTimeout(() => {
+            window.location.href = url;
+        }, 1000);
+    }
+
+    
+</script>
+<script>
+    function toggleMenu() {
+      document.querySelector('.hamburger').classList.toggle('active');
+      document.querySelector('.menu').classList.toggle('active');
+    }
+  </script>
+  
+  
+
+
+
+  <script>
+    function showWorkingMessage() {
+      const message = document.querySelector('#rectangle-2 .working-message');
+      message.style.display = 'block';
+      setTimeout(() => {
+        message.style.display = 'none';
+      }, 900); // aparece 0,9 segundos
+    }
+    </script>
+
+
+<script>
+    function showWorkingProjectsMessage() {
+      const message = document.querySelector('#rectangle-3 .working-projects-message');
+      message.style.display = 'block';
+      setTimeout(() => {
+        message.style.display = 'none';
+      }, 900); // aparece 0,9 segundos
+    }
+    </script>
+    
+    
+</body>
+</html>
